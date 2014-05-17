@@ -11,6 +11,9 @@ handlers:
 - url: /scripts
   static_dir: scripts
 
+- url: /images/icons
+  static_dir: images/icons
+
 - url: /.*
   script: guestbook.application
 
