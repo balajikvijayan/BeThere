@@ -1,5 +1,8 @@
 var map, infowindow, GeoMarker;
+<<<<<<< HEAD
 var markersArray = [];
+=======
+>>>>>>> ae7854f2e00d95ed8a7311aa0b8f2c2930b337d1
 
 function getLocation(){
       if (navigator.geolocation)
@@ -36,6 +39,7 @@ function initialize(position) {
     GeoMarker = new GeolocationMarker(map);
     GeoMarker.setCircleOptions({fillColor: '#808080'});
 
+<<<<<<< HEAD
     google.maps.event.addListenerOnce(GeoMarker, 'position_changed', function() {
       map.setCenter(myLocation);  
     });
@@ -45,6 +49,25 @@ function initialize(position) {
     });
 
     GeoMarker.setMap(map);
+=======
+    GeoMarker = new GeolocationMarker();
+    GeoMarker.setCircleOptions({fillColor: '#808080'});
+
+    google.maps.event.addListenerOnce(GeoMarker, 'position_changed', function() {
+        map.setCenter(this.getPosition());
+      });
+
+    google.maps.event.addListener(GeoMarker, 'geolocation_error', function(e) {
+        alert('There was an error obtaining your position. Message: ' + e.message);
+      });
+
+    GeoMarker.setMap(map);
+      
+    var request = {
+    		    location: myLocation,
+    		    radius: 500
+    		  };
+>>>>>>> ae7854f2e00d95ed8a7311aa0b8f2c2930b337d1
     infowindow = new google.maps.InfoWindow();
     
     var input = /** @type {HTMLInputElement} */(
